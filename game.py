@@ -4,7 +4,6 @@ def random_grid():
     grid=[]
     for  i in range (1,10):
         r_c=random.choice(string.ascii_letters)
-        r_c=r_c.lower()
         grid.append(r_c)
     return grid
 
@@ -15,10 +14,11 @@ class Game():
 
 
     def  is_valid(self,word):
-        word=word.lower()
+        grid=self.grid
         for  c  in word:
-            if  c not  in self.grid:
+            if  c not  in grid:
                 return False
+            grid.remove(c)
         return True
 
 
